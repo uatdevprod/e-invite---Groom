@@ -1,0 +1,113 @@
+{
+	"invitation_details": {
+		"invitation_type": "Wedding Invitation",
+		"language": "Gujarati and English",
+		"spiritual_invocations": [
+			"|| Shree Ganeshaya Namah ||",
+			"|| Shree Serial Matay Namah ||",
+			"|| Shree Mahaviraya Namah ||"
+		],
+		"inspirational_quote": "A daughter is like bringing the whole of spring home when only a green leaf was expected. A daughter is not just a blessing, but God found within a blessing...!"
+	},
+	"couple": {
+		"bride": {
+			"name": "Riya",
+			"family_details": {
+				"name": "Riya Nilesh Savla",
+				"parents": "Daughter of Mrs. Meenaben Nilesh Malshi Savla",
+				"paternal_grandmother": "GrandDaughter of Late Mrs. Panchiben Malshi Arjan Savla",
+				"native_village": "Village Manfara"
+			}
+		},
+		"groom": {
+			"name": "Abhishek",
+			"family_details": {
+				"name": "Abhishek Rajesh Faria",
+				"parents": "Son of Mrs. Rakshaben Rajesh Damji Faria",
+				"paternal_grandparents": "GrandSon of Late Mrs. Amrutben and Mr. Damji Ugmashi Faria",
+				"native_village": "Village Adhoi"
+			}
+		}
+	},
+	"event_details": {
+		"date": "Sunday, 10.05.2026",
+		"hindu_calendar_date": "Samvat 2082,  Vaishakh Vad 8",
+		"schedule": [
+			{
+				"event": "Samaiyu (Welcoming of Baraat)",
+				"time": "3:00 PM"
+			},
+			{
+				"event": "Svaruchi Bhojan (Dinner)",
+				"time": "5:30 PM to 10:00 PM",
+				"notes": "Chauvihar arrangement is available."
+			},
+			{
+				"event": "Hast Melap / Wedding Ceremony",
+				"time": "6:56 PM onwards"
+			}
+		],
+		"venue": {
+			"name": "Aurum Banquet",
+			"address": "NESCO Ground, Gate No. 1, Western Express Highway, Goregaon (East), Mumbai - 400063"
+		}
+	},
+	"family_and_well_wishers": {
+		"maternal_relations_mameru": {
+			"village": "Village Samakhiyari",
+			"grandparents": "Maternal Grandparents Late Mrs. Gomtiben and Late Mr. Premji Vijpar Gada",
+			"uncles_and_aunts": [
+				"Mrs. Hansaben Jitu Premji Gada",
+				"Mrs. Arunaben Dinesh Premji Gada",
+				"Mrs. Manishaben Ketan Premji Gada"
+			],
+			"siblings_cousins": [
+				"Mrs. Avani Sachin Sharma",
+				"Ms. Mansi Jitu Gada",
+				"Ms. Sakshi Jitu Gada",
+				"Ms. Jinni Ketan Gada",
+				"Master Aryan Ketan Gada",
+				"Master Jihan Ketan Gada"
+			]
+		},
+		"darshanabhilashi_section": {
+			"title": "Awaiting Your Presence",
+			"members": [
+				{
+					"female": "Mrs. Meena Nilesh Malshi Savla"
+				},
+				{
+					"female": "Mrs. Chandan Ketan Murji Furia"
+				},
+				{
+					"female": "Mrs. Mona Damji Arjan Savla"
+				},
+				{
+					"female": "Mrs. Meena Shantilal Vaghji Nishar"
+				},
+				{
+					"female": "Mrs. Mukta Himmat Khetshi Shah"
+				},
+				{
+					"female": "Mrs. Jinkal Milind Vadilal Gada"
+				}
+			]
+		},
+		"snehaadhin_well_wishers": [
+			"Ms. Harsha Malshi Savla",
+			"Ms. Khushi Nilesh Savla",
+			"Master Daksh Nilesh Savla",
+			"Master Daksh Damji Savla",
+			"Ms. Vishwa Ketan Furia",
+			"Master Pratik Ketan Furia"
+		],
+		"divine_blessings_divya_ashish": [
+			"Late Bhavalben Arjan Jivraj Savla",
+			"Late Gangaben Arjan Jivraj Savla",
+			"Late Jayesh Malshi Savla",
+			"Late Laxmiben Keshavji Savla",
+			"Late Ratanben Madan Gada",
+			"Late Manuben Vijpar Gada"
+		]
+	}
+}

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Playfair+Display:wght@400;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-cursive: 'Luxurious Script', cursive;
+  --font-serif: 'Playfair Display', serif;
+
+  --color-blush: #FDE8E9;
+  --color-champagne: #F7E7CE;
+  --color-rosegold: #B76E79;
+  --color-sky: #E0F2FE;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
