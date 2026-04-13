@@ -402,7 +402,7 @@ function App() {
 							whileInView="visible"
 							viewport={{ once: true }}
 							className="flex flex-col gap-2.5">
-							{family.darshanabhilashi_section?.members.map((m, i) => (
+							{family.darshanabhilashi_section?.members.map((member, i) => (
 								<Motion.div
 									key={i}
 									variants={{
@@ -417,11 +417,10 @@ function App() {
 									<div className="absolute left-0 top-0 bottom-0 w-1 bg-rosegold/40 rounded-l-xl group-hover:bg-rosegold transition-colors"></div>
 									<div className="absolute right-0 top-0 bottom-0 w-1 bg-rosegold/40 rounded-r-xl group-hover:bg-rosegold transition-colors"></div>
 
-									<p className="text-[11px] leading-tight text-center flex flex-wrap justify-center items-center gap-x-1.5">
+									<p className="text-[12px] leading-tight text-center flex items-center gap-x-1.5 font-bold text-gray-800">
 										<span className="text-rosegold/60 text-[9px]">✦</span>
-										<span className="font-bold text-gray-800">{m.female}</span>
+										{member}
 										<span className="text-rosegold/60 text-[9px]">✦</span>
-										<span className="font-medium text-gray-700">{m.male}</span>
 									</p>
 								</Motion.div>
 							))}
@@ -518,11 +517,11 @@ function App() {
 						</div>
 						<div className="w-full h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/60">
 							<iframe
-								src="https://www.google.com/maps?q=4VW4+V39,+NESCO,+Goregaon+East,+Mumbai&output=embed"
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15076.392055762308!2d72.83680582487656!3d19.147186452496317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7005a8fb41f%3A0xf416abb0aaf0df4f!2sAurum%20baquet%20Nesco!5e0!3m2!1sen!2sin!4v1776059272027!5m2!1sen!2sin"
 								width="100%"
 								height="100%"
 								style={{ border: 0 }}
-								allowFullScreen=""
+								allowfullscreen=""
 								loading="lazy"></iframe>
 						</div>
 						<p className="text-rosegold font-cursive text-5xl mt-8">
