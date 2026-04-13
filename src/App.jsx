@@ -134,7 +134,7 @@ const Countdown = ({ targetDate, language }) => {
 		gu: ["દિવસ", "કલાક", "મિનિટ", "સેકન્ડ"],
 	};
 
-	const currentLabels = language === "en" ? labels.en : labels.gu;
+	const currentLabels = language === labels.gu;
 
 	return (
 		<div className="flex justify-center gap-3 mb-6 bg-rosegold/10 py-3 rounded-2xl border border-rosegold/20">
@@ -153,7 +153,7 @@ const Countdown = ({ targetDate, language }) => {
 };
 
 function App() {
-	const [language, setLanguage] = useState("en");
+	const [language, setLanguage] = useState("gu");
 	const [isOpened, setIsOpened] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(true);
 
@@ -235,12 +235,8 @@ function App() {
 				</button>
 
 				<button
-					onClick={() => setLanguage(language === "en" ? "gu" : "en")}
+					onClick={() => setLanguage(language === "gu")}
 					className="pointer-events-auto flex items-center gap-1 text-xs tracking-widest uppercase text-rosegold bg-white/50 backdrop-blur-md px-2 py-2 rounded-full shadow-sm border border-white/40 font-bold">
-					<span className={language === "en" ? "" : "text-gray-500"}>
-						English
-					</span>
-					|
 					<span className={language === "gu" ? "" : "text-gray-500"}>
 						ગુજરાતી
 					</span>
@@ -248,7 +244,7 @@ function App() {
 			</div>
 
 			<a
-				href={`https://wa.me/919757396440?text=Hello!%20We%20will%20be%20attending%20the%20wedding!`}
+				href={`https://wa.me/919323944934?text=Hello!%20We%20will%20be%20attending%20the%20wedding!`}
 				target="_blank"
 				rel="noreferrer"
 				className="fixed z-50 bottom-6 right-4 bg-green-500/90 backdrop-blur-md text-white p-4 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-600 transition border border-green-400/50">
@@ -357,7 +353,8 @@ function App() {
 						viewport={{ once: true, amount: 0.2 }}
 						className="w-full max-w-sm bg-white/60 backdrop-blur-sm p-8 rounded-3xl border border-white/50 shadow-xl">
 						<h2 className="text-center text-sm tracking-widest uppercase text-rosegold border-b border-rosegold/20 pb-3 mb-4 font-bold">
-							{language === "en" ? "Schedule" : "પ્રસંગ"}
+							{/* {language === "en" ? "Schedule" : "પ્રસંગ"} */}
+							પ્રસંગ
 						</h2>
 
 						<div className="space-y-6">
@@ -505,7 +502,8 @@ function App() {
 						className="w-full max-w-sm">
 						<div className="bg-white/60 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/50 mb-6">
 							<h2 className="text-sm tracking-widest uppercase text-rosegold mb-1 font-bold">
-								{language === "en" ? "Venue" : "સ્થળ"}
+								{/* {language === "en" ? "Venue" : "સ્થળ"} */}
+								સ્થળ
 							</h2>
 							<p className="font-bold text-gray-800 text-lg">
 								{event.venue?.name}
