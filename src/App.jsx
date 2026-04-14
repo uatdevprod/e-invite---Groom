@@ -1,9 +1,8 @@
-import { motion as Motion, AnimatePresence } from "framer-motion";
-import { ChevronUp, MessageCircleHeart, Volume2, VolumeX } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
-import en from "./data/english.json";
-import gu from "./data/gujarati.json";
+import { AnimatePresence, motion as Motion } from "framer-motion";
+import { MessageCircleHeart, Volume2, VolumeX } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import LiveBackground from "./components/LiveBackground";
+import gu from "./data/gujarati.json";
 
 const slideUp = {
 	hidden: { opacity: 0, y: 40, scale: 0.95 },
@@ -33,10 +32,12 @@ const ImageCarousel = () => {
 				<Motion.img
 					key={index}
 					src={images[index]}
-					initial={{ opacity: 0, scale: 1.1 }}
-					animate={{ opacity: 1, scale: 1 }}
-					exit={{ opacity: 0, scale: 0.9 }}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
 					transition={{ duration: 1 }}
+					loading="lazy"
+					decoding="async"
 					className="absolute inset-0 w-full h-full object-cover"
 				/>
 			</AnimatePresence>
@@ -100,64 +101,12 @@ const FallingPetals = () => {
 	);
 };
 
-const Countdown = ({ targetDate, language }) => {
-	const [timeLeft, setTimeLeft] = useState({
-		days: 0,
-		hours: 0,
-		mins: 0,
-		secs: 0,
-	});
-
-	useEffect(() => {
-		const timer = setInterval(() => {
-			const now = new Date().getTime();
-			const distance = new Date(targetDate).getTime() - now;
-
-			if (distance < 0) {
-				clearInterval(timer);
-			} else {
-				setTimeLeft({
-					days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-					hours: Math.floor(
-						(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-					),
-					mins: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-					secs: Math.floor((distance % (1000 * 60)) / 1000),
-				});
-			}
-		}, 1000);
-		return () => clearInterval(timer);
-	}, [targetDate]);
-
-	const labels = {
-		en: ["Days", "Hrs", "Mins", "Secs"],
-		gu: ["દિવસ", "કલાક", "મિનિટ", "સેકન્ડ"],
-	};
-
-	const currentLabels = language === labels.gu;
-
-	return (
-		<div className="flex justify-center gap-3 mb-6 bg-rosegold/10 py-3 rounded-2xl border border-rosegold/20">
-			{Object.entries(timeLeft).map(([key, value], i) => (
-				<div key={key} className="flex flex-col items-center min-w-[50px]">
-					<span className="text-xl font-bold text-rosegold leading-none">
-						{value}
-					</span>
-					<span className="text-[9px] uppercase tracking-tighter text-gray-500 font-bold mt-1">
-						{currentLabels[i]}
-					</span>
-				</div>
-			))}
-		</div>
-	);
-};
-
 function App() {
 	const [language, setLanguage] = useState("gu");
 	const [isOpened, setIsOpened] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(true);
 
-	const content = language === "en" ? en : gu;
+	const content = language === "gu" ? gu : " ";
 	const audioRef = useRef(null);
 
 	// --- Safely Extracting New JSON Structure ---
@@ -199,7 +148,7 @@ function App() {
 					initial={{ scale: 0.9, opacity: 0 }}
 					animate={{ scale: 1, opacity: 1 }}
 					onClick={handleOpenInvitation}
-					className="relative z-10 w-full max-w-sm cursor-pointer group bg-white/40 backdrop-blur-sm p-10 rounded-2xl border-2 border-white shadow-2xl">
+					className="relative z-10 w-full max-w-sm cursor-pointer group bg-white/30 p-10 rounded-2xl border-2 border-white shadow-2xl">
 					<div className="relative w-32 h-32 mx-auto mb-8">
 						<img
 							src="/RA-logo.png"
@@ -214,7 +163,7 @@ function App() {
 						Tap to Enter
 					</p>
 				</Motion.div>
-				<audio ref={audioRef} src="/DinShagnaDaPhillauri.mp3" loop />
+				<audio ref={audioRef} src="/kabira.mp3" loop />
 			</div>
 		);
 	}
@@ -224,7 +173,7 @@ function App() {
 		<div className="h-dvh w-full font-serif text-gray-800 relative bg-transparent">
 			<LiveBackground />
 			{!isLowEnd && <FallingPetals />}
-			<audio ref={audioRef} src="/DinShagnaDaPhillauri.mp3" loop autoPlay />
+			<audio ref={audioRef} src="/kabira.mp3" loop autoPlay />
 
 			{/* --- Floating UI Elements --- */}
 			<div className="fixed z-50 top-6 left-4 right-4 flex justify-between items-center pointer-events-none">
@@ -283,7 +232,7 @@ function App() {
 							</h4>
 						</div>
 						{quote && (
-							<p className="text-[11px] text-gray-600 italic leading-relaxed bg-white/40 backdrop-blur-sm p-4 rounded-xl border border-white/30 text-center mt-2">
+							<p className="text-[11px] text-gray-600 italic leading-relaxed bg-white/80 p-4 rounded-xl border border-white/30 text-center mt-2">
 								"{quote}"
 							</p>
 						)}
@@ -303,7 +252,7 @@ function App() {
 							initial="hidden"
 							whileInView="visible"
 							viewport={{ once: true, amount: 0.2 }}
-							className="w-full max-w-sm bg-white/60 backdrop-blur-sm p-6 rounded-3xl border border-white/50 shadow-2xl max-h-[90vh] overflow-y-auto no-scrollbar text-center mb-2">
+							className="w-full max-w-sm bg-white/60 p-6 rounded-3xl border border-white/50 shadow-2xl max-h-[90vh] overflow-y-auto no-scrollbar text-center mb-2">
 							<div>
 								<h4 className="text-rosegold mb-3 italic font-bold uppercase tracking-widest text-[20px]">
 									{groom.family_details?.name}
@@ -325,7 +274,7 @@ function App() {
 							initial="hidden"
 							whileInView="visible"
 							viewport={{ once: true, amount: 0.2 }}
-							className="w-full max-w-sm bg-white/60 backdrop-blur-sm p-6 rounded-3xl border border-white/50 shadow-2xl max-h-[90vh] overflow-y-auto no-scrollbar text-center">
+							className="w-full max-w-sm bg-white/60 p-6 rounded-3xl border border-white/50 shadow-2xl max-h-[90vh] overflow-y-auto no-scrollbar text-center">
 							<div>
 								<h4 className="text-rosegold mb-3 italic font-bold uppercase tracking-widest text-[20px]">
 									{bride.family_details?.name}
@@ -353,7 +302,6 @@ function App() {
 						viewport={{ once: true, amount: 0.2 }}
 						className="w-full max-w-sm bg-white/60 backdrop-blur-sm p-8 rounded-3xl border border-white/50 shadow-xl">
 						<h2 className="text-center text-sm tracking-widest uppercase text-rosegold border-b border-rosegold/20 pb-3 mb-4 font-bold">
-							{/* {language === "en" ? "Schedule" : "પ્રસંગ"} */}
 							પ્રસંગ
 						</h2>
 
@@ -386,7 +334,7 @@ function App() {
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, amount: 0.2 }}
-						className="w-full max-w-sm bg-white/60 backdrop-blur-sm p-6 rounded-3xl border border-white/50 shadow-2xl max-h-[85vh] overflow-y-auto no-scrollbar">
+						className="w-full max-w-sm bg-white/60 p-6 rounded-3xl border border-white/50 shadow-2xl max-h-[85vh] overflow-y-auto no-scrollbar">
 						<h4 className="text-rosegold mb-4 italic font-bold uppercase tracking-widest text-sm border-b border-rosegold/20 pb-2 inline-block px-4">
 							{family.darshanabhilashi_section?.title}
 						</h4>
@@ -432,7 +380,7 @@ function App() {
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, amount: 0.2 }}
-						className="w-full max-w-sm bg-white/60 backdrop-blur-sm p-6 rounded-3xl border border-white/50 shadow-2xl max-h-[85vh] overflow-y-auto no-scrollbar">
+						className="w-full max-w-sm bg-white/50 p-6 rounded-3xl border border-white/50 shadow-2xl max-h-[85vh] overflow-y-auto no-scrollbar">
 						<h4 className="text-rosegold mb-3 italic font-bold uppercase tracking-widest text-sm">
 							સ્નેહાધીન
 						</h4>
@@ -500,9 +448,8 @@ function App() {
 						whileInView="visible"
 						viewport={{ once: true, amount: 0.2 }}
 						className="w-full max-w-sm">
-						<div className="bg-white/60 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-white/50 mb-6">
+						<div className="bg-white/60  p-6 rounded-3xl shadow-xl border border-white/50 mb-6">
 							<h2 className="text-sm tracking-widest uppercase text-rosegold mb-1 font-bold">
-								{/* {language === "en" ? "Venue" : "સ્થળ"} */}
 								સ્થળ
 							</h2>
 							<p className="font-bold text-gray-800 text-lg">
