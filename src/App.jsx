@@ -263,7 +263,7 @@ function App() {
 								<p className="text-gray-800 font-bold text-sm">
 									{groom.family_details?.parents}
 								</p>
-								<p className="text-gray-600 font-bold text-sm mt-1">
+								<p className="text-gray-800 font-bold text-sm mt-1">
 									{groom.family_details?.paternal_grandparents}
 								</p>
 							</div>
