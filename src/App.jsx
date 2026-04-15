@@ -163,7 +163,7 @@ function App() {
 						Tap to Enter
 					</p>
 				</Motion.div>
-				<audio ref={audioRef} src="/kabira.mp3" loop />
+				<audio ref={audioRef} src="/kabiraInstrumental.mp3" loop />
 			</div>
 		);
 	}
@@ -173,7 +173,7 @@ function App() {
 		<div className="h-dvh w-full font-serif text-gray-800 relative bg-transparent">
 			<LiveBackground />
 			{!isLowEnd && <FallingPetals />}
-			<audio ref={audioRef} src="/kabira.mp3" loop autoPlay />
+			<audio ref={audioRef} src="/kabiraInstrumental.mp3" loop autoPlay />
 
 			{/* --- Floating UI Elements --- */}
 			<div className="fixed z-50 top-6 left-4 right-4 flex justify-between items-center pointer-events-none">
